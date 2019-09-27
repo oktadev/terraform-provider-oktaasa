@@ -31,7 +31,7 @@ export ASA_TEAM=<team name>
 
 Using the provider
 ----------------------
-There are tree main resources that you need to provision:
+There are three main resources that you need to provision:
 1. Project - project is an authorization scope. It associates a collection of resources with a set of configurations, including RBAC and access policies.
 1. Enrollment token - using enrollment token, you can add servers to a project.
 1. Groups - in order to give access to a project, you need to assign a group to it.
