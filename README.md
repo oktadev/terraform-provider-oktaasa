@@ -1,4 +1,4 @@
-Terraform Provider ASA
+Terraform Provider for Advanced Server Access (ASA) 
 ==================
 
 Maintainers
