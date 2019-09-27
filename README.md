@@ -24,9 +24,9 @@ Usage
 
 This plugin requires a couple of inputs to run: ASA API key, secret and team name. Set them as environment variables.
 ```
-ASA_KEY_SECRET = < secret here >
-ASA_KEY = < key here >
-ASA_TEAM = < team name>
+export ASA_KEY_SECRET=<secret here>
+export ASA_KEY=<key here>
+export ASA_TEAM=<team name>
 ```
 
 Using the provider
