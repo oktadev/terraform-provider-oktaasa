@@ -132,3 +132,38 @@ Parameters:
 in this project.
 * server_admin (bool) (Required) - Whether users in this group have sudo permissions on the servers in this project.
 * create_server_group (bool) (Optional - Default: true) - will make ASA synchronize group name to linux box. To avoid naming collision, group created by ASA will have prefix of "asa_"
+
+Remove/destroy configured parameters
+----------------------
+To remove configurations that were created with Terraform, do the following.  Refer to the main.tf for the defined resources and review the "resource_type" and "resource_name" values.  
+
+```
+resource "resource_type" "resource_name" {
+  ...
+}
+```
+
+Or, at a commandline prompt where you have sourced the terraform binaries, enter "terraform state list" (without the quotes).  You should get a list like the following.  
+
+```
+[root@ip-172-31-20-120 terraform-provider-asa]# terraform state list
+asa_assign_group.dev-group-assignment
+asa_assign_group.group-assignment
+asa_assign_group.test-sft-group-assignment
+asa_create_group.cloud-sre
+asa_create_group.cloud-support
+asa_create_group.test-tf-group
+asa_enrollment_token.test-import-token
+asa_enrollment_token.test-token
+asa_project.demo-project
+```
+
+Compile the terraform destroy command with the -target arguments in the following format:
+
+terraform destroy -target RESOURCE_TYPE.NAME -target RESOURCE_TYPE2.NAME -target RESOURCE_TYPE3.NAME
+
+An example would be like the following.  Note that destroying the demo-project also destroys certain parameters like the tokens.  However, the groups still must be destroyed.
+
+```
+terraform destroy -target asa_project.demo-project -target asa_create_group.cloud-sre -target asa_create_group.cloud-support -target asa_create_group.test-tf-group
+```
