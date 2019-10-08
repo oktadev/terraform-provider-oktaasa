@@ -4,7 +4,8 @@ Terraform Provider for Advanced Server Access (ASA)
 Maintainers
 -----------
 
-This provider plugin is maintained by the Hashicorp Terraform and Okta teams.
+This provider plugin is maintained by the Hashicorp Terraform and Okta teams. 
+Credit to Aleksei Denisov and Splunk Team for providing original source.
 
 Requirements
 ------------
