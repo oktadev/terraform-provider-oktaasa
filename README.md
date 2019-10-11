@@ -1,37 +1,48 @@
-Terraform Provider for Advanced Server Access (ASA) 
-==================
+Terraform Provider for Advanced Server Access (ASA)
+=========================
+
+- Website: https://www.terraform.io
+- [![Gitter chat](https://badges.gitter.im/hashicorp-terraform/Lobby.png)](https://gitter.im/hashicorp-terraform/Lobby)
+- Mailing list: [Google Groups](http://groups.google.com/group/terraform-tool)
+
+<img src="https://cdn.rawgit.com/hashicorp/terraform-website/master/content/source/assets/images/logo-hashicorp.svg" width="600px">
 
 Maintainers
 -----------
 
-This provider plugin is maintained by the Hashicorp Terraform and Okta teams. 
-Credit to Aleksei Denisov and Splunk Team for providing original source.
+This provider plugin is maintained by the Terraform team at [HashiCorp](https://www.hashicorp.com/).
 
 Requirements
 ------------
 
--	[Terraform](https://www.terraform.io/downloads.html)
--	[Go](https://golang.org/doc/install)
+-	[Terraform](https://www.terraform.io/downloads.html) 0.12.x
+-	[Go](https://golang.org/doc/install) 1.13 (to build the provider plugin)
 
-Build
+Building The Provider
 ---------------------
 
-```
-go build -o terraform-provider-asa
+Clone repository to: `$GOPATH/src/github.com/terraform-providers/terraform-provider-asa`
+
+```sh
+$ git clone git@github.com:terraform-providers/terraform-provider-asa $GOPATH/src/github.com/terraform-providers/terraform-provider-asa
 ```
 
-Usage
----------------------
+Go to the provider directory and build the provider
 
-This plugin requires a couple of inputs to run: ASA API key, secret and team name. Set them as environment variables.
+```sh
+$ cd $GOPATH/src/github.com/terraform-providers/terraform-provider-asa
+$ make build
+```
+
+Using the provider
+----------------------
+Set the following environment variables prior to running: ASA API key, secret and team name. 
 ```
 export ASA_KEY_SECRET=<secret here>
 export ASA_KEY=<key here>
 export ASA_TEAM=<team name>
 ```
 
-Using the provider
-----------------------
 There are three main resources that you need to provision:
 1. Project - project is an authorization scope. It associates a collection of resources with a set of configurations, including RBAC and access policies.
 1. Enrollment token - using enrollment token, you can add servers to a project.
@@ -167,4 +178,33 @@ An example would be like the following.  Note that destroying the demo-project a
 
 ```
 terraform destroy -target asa_project.demo-project -target asa_create_group.cloud-sre -target asa_create_group.cloud-support -target asa_create_group.test-tf-group
+```
+
+
+Developing the Provider
+---------------------------
+
+If you wish to work on the provider, you'll first need [Go](http://www.golang.org) installed on your machine (version 1.11+ is *required*). You'll also need to correctly setup a [GOPATH](http://golang.org/doc/code.html#GOPATH), as well as adding `$GOPATH/bin` to your `$PATH`.
+
+To compile the provider, run `make build`. This will build the provider and put the provider binary in the `$GOPATH/bin` directory.
+
+```sh
+$ make bin
+...
+$ $GOPATH/bin/terraform-provider-asa
+...
+```
+
+In order to test the provider, you can simply run `make test`.
+
+```sh
+$ make test
+```
+
+In order to run the full suite of Acceptance tests, run `make testacc`.
+
+*Note:* Acceptance tests create real resources, and often cost money to run.
+
+```sh
+$ make testacc
 ```
