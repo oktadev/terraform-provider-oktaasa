@@ -1,0 +1,35 @@
+<% wrap_layout :inner do %>
+  <% content_for :sidebar do %>
+    <div class="docs-sidebar hidden-print affix-top" role="complementary">
+      <ul class="nav docs-sidenav">
+        <li<%= sidebar_current("docs-home") %>>
+          <a href="/docs/providers/index.html">All Providers</a>
+        </li>
+
+        <li<%= sidebar_current("docs-asa-index") %>>
+          <a href="/docs/providers/asa/index.html">Advanced Server Access Provider</a>
+        </li>
+
+        <li<%= sidebar_current("docs-asa-resource") %>>
+          <a href="#">Resources</a>
+          <ul class="nav nav-visible">
+            <li<%= sidebar_current("docs-resource-asa-project") %>>
+              <a href="/docs/providers/asa/r/asa_project.html">asa_project</a>
+            </li>
+            <li<%= sidebar_current("docs-resource-asa-enrollment-token") %>>
+              <a href="/docs/providers/asa/r/asa_enrollment_token.html">asa_enrollment_token</a>
+            </li>
+            <li<%= sidebar_current("docs-resource-asa-create-group") %>>
+              <a href="/docs/providers/asa/r/asa_create_group.html">asa_create_group</a>
+            </li>
+            <li<%= sidebar_current("docs-resource-asa-assign-group") %>>
+              <a href="/docs/providers/asa/r/asa_assign_group.html">asa_assign_group</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= yield %>
+<% end %>
