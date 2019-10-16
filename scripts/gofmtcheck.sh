@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Check gofmt
 echo "==> Checking that code complies with gofmt requirements..."
 gofmt_files=$(gofmt -l `find . -name '*.go' | grep -v vendor`)
