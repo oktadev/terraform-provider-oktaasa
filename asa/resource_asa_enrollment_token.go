@@ -96,7 +96,7 @@ func resourceASATokenRead(d *schema.ResourceData, m interface{}) error {
 		var tokenInfo EnrollmentToken
 		err := json.Unmarshal([]byte(resp.Body()), &tokenInfo)
 
-		if err != nil{
+		if err != nil {
 			return fmt.Errorf("[ERROR] Error when reading token state. Token: %s. Error: %s", tokenId, err)
 		}
 
