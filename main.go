@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/oktstage/terraform-provider-asa/asa"
 	"github.com/hashicorp/terraform/plugin"
+	"github.com/oktstage/terraform-provider-asa/asa"
 )
 
 func main() {
