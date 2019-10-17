@@ -2,8 +2,9 @@ package asa
 
 import (
 	"encoding/json"
-	"gopkg.in/resty.v1"
 	"log"
+
+	"gopkg.in/resty.v1"
 )
 
 type Config struct {
@@ -17,6 +18,7 @@ const url string = "https://app.scaleft.com/v1"
 var teamName = ""
 
 type Bearer struct {
+	TeamName    string `json:"-"`
 	BearerToken string `json:"bearer_token"`
 }
 
