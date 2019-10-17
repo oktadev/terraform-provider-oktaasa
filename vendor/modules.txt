@@ -59,6 +59,8 @@ github.com/bgentry/speakeasy
 github.com/blang/semver
 # github.com/bmatcuk/doublestar v1.1.5
 github.com/bmatcuk/doublestar
+# github.com/davecgh/go-spew v1.1.1
+github.com/davecgh/go-spew/spew
 # github.com/fatih/color v1.7.0
 github.com/fatih/color
 # github.com/golang/protobuf v1.3.2
@@ -116,28 +118,47 @@ github.com/hashicorp/hcl/v2/ext/dynblock
 github.com/hashicorp/hcl/v2/ext/typeexpr
 github.com/hashicorp/hcl/v2/gohcl
 github.com/hashicorp/hcl/v2/hcldec
+github.com/hashicorp/hcl/v2/hcled
 github.com/hashicorp/hcl/v2/hclparse
 github.com/hashicorp/hcl/v2/hclsyntax
 github.com/hashicorp/hcl/v2/hclwrite
 github.com/hashicorp/hcl/v2/json
+# github.com/hashicorp/hcl2 v0.0.0-20190821123243-0c888d1241f6
+github.com/hashicorp/hcl2/gohcl
+github.com/hashicorp/hcl2/hcl
+github.com/hashicorp/hcl2/hcl/hclsyntax
+github.com/hashicorp/hcl2/hcl/json
+github.com/hashicorp/hcl2/hclparse
+github.com/hashicorp/hcl2/hclwrite
 # github.com/hashicorp/hil v0.0.0-20190212112733-ab17b08d6590
 github.com/hashicorp/hil
 github.com/hashicorp/hil/ast
 github.com/hashicorp/hil/parser
 github.com/hashicorp/hil/scanner
+# github.com/hashicorp/logutils v1.0.0
+github.com/hashicorp/logutils
 # github.com/hashicorp/terraform v0.12.10
 github.com/hashicorp/terraform/addrs
+github.com/hashicorp/terraform/command/format
 github.com/hashicorp/terraform/config
 github.com/hashicorp/terraform/configs
+github.com/hashicorp/terraform/configs/configload
 github.com/hashicorp/terraform/configs/configschema
 github.com/hashicorp/terraform/configs/hcl2shim
 github.com/hashicorp/terraform/dag
+github.com/hashicorp/terraform/flatmap
+github.com/hashicorp/terraform/helper/config
 github.com/hashicorp/terraform/helper/didyoumean
 github.com/hashicorp/terraform/helper/hashcode
 github.com/hashicorp/terraform/helper/hilmapstructure
+github.com/hashicorp/terraform/helper/logging
 github.com/hashicorp/terraform/helper/plugin
+github.com/hashicorp/terraform/helper/resource
 github.com/hashicorp/terraform/helper/schema
 github.com/hashicorp/terraform/httpclient
+github.com/hashicorp/terraform/internal/earlyconfig
+github.com/hashicorp/terraform/internal/initwd
+github.com/hashicorp/terraform/internal/modsdir
 github.com/hashicorp/terraform/internal/tfplugin5
 github.com/hashicorp/terraform/lang
 github.com/hashicorp/terraform/lang/blocktoattr
@@ -161,6 +182,8 @@ github.com/hashicorp/terraform/svchost/disco
 github.com/hashicorp/terraform/terraform
 github.com/hashicorp/terraform/tfdiags
 github.com/hashicorp/terraform/version
+# github.com/hashicorp/terraform-config-inspect v0.0.0-20190821133035-82a99dc22ef4
+github.com/hashicorp/terraform-config-inspect/tfconfig
 # github.com/hashicorp/yamux v0.0.0-20180604194846-3520598351bb
 github.com/hashicorp/yamux
 # github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
@@ -171,6 +194,8 @@ github.com/mattn/go-colorable
 github.com/mattn/go-isatty
 # github.com/mitchellh/cli v1.0.0
 github.com/mitchellh/cli
+# github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db
+github.com/mitchellh/colorstring
 # github.com/mitchellh/copystructure v1.0.0
 github.com/mitchellh/copystructure
 # github.com/mitchellh/go-homedir v1.1.0
@@ -330,5 +355,6 @@ google.golang.org/grpc/resolver/passthrough
 google.golang.org/grpc/stats
 google.golang.org/grpc/status
 google.golang.org/grpc/tap
+google.golang.org/grpc/test/bufconn
 # gopkg.in/resty.v1 v1.12.0
 gopkg.in/resty.v1
