@@ -2,10 +2,10 @@ package main
 
 import (
 	"github.com/hashicorp/terraform/plugin"
-	"github.com/oktstage/terraform-provider-asa/asa"
+	"github.com/oktstage/terraform-provider-oktaasa/oktaasa"
 )
 
 func main() {
 	plugin.Serve(&plugin.ServeOpts{
-		ProviderFunc: asa.Provider})
+		ProviderFunc: oktaasa.Provider})
 }
