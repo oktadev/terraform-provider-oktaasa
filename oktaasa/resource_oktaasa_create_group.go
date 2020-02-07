@@ -19,14 +19,6 @@ func resourceOKTAASACreateGroup() *schema.Resource {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			//"group_role": {
-			//	Type:     schema.TypeList,
-			//	Optional: true,
-			//	Default: []string,
-			//	Elem: &schema.Schema{
-			//		Type: schema.TypeString,
-			//	},
-			//},
 		},
 	}
 }
@@ -37,7 +29,6 @@ func resourceOKTAASACreateGroupCreate(d *schema.ResourceData, m interface{}) err
 
 	//get settings from terraform config.
 	oktaasaGroupName := d.Get("name").(string)
-	//groupRole := d.Get("group_role")
 
 	log.Printf("[DEBUG] Creating group %s", oktaasaGroupName)
 

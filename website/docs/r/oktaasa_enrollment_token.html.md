@@ -4,7 +4,7 @@ page_title: "Advanced Server Access: oktaasa_enrollment_token"
 sidebar_current: "docs-resource-oktaasa-enrollment-token"
 description: |-
   The oktaasa_token resource creates enrollment tokens which are base64-encoded objects with metadata that Okta's ASA Agent can configure itself from.  Enrollment is the process where Okta's ASA agent configures a server to be managed by a specific project.
-.
+
 ---
 
 # oktaasa\_token
