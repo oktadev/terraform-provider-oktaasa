@@ -26,7 +26,7 @@ resource "oktaasa_token" "stack-x-token" {
 The following arguments are supported:
 
 * `project_name` (Required) - name of the project.
-* `Description` (Required) - free form text field to provide description. You will NOT be able to change it later without recreating a token.
+* `description` (Required) - free form text field to provide description. You will NOT be able to change it later without recreating a token.
 
 
 ## Attributes Reference
