@@ -208,3 +208,5 @@ In order to run the full suite of Acceptance tests, run `make testacc`.
 ```sh
 $ make testacc
 ```
+
+**Special thanks to Aleksei Denisov and the Splunk Cloud team members who were the authors of the original provider which has since been re-purposed for this certified version**
