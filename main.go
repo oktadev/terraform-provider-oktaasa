@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/hashicorp/terraform/plugin"
-	"github.com/oktstage/terraform-provider-oktaasa/oktaasa"
+	"github.com/terraform-providers/terraform-provider-oktaasa/oktaasa"
 )
 
 func main() {
