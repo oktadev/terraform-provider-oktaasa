@@ -208,8 +208,6 @@ github.com/mitchellh/mapstructure
 github.com/mitchellh/reflectwalk
 # github.com/oklog/run v1.0.0
 github.com/oklog/run
-# github.com/oktstage/terraform-provider-oktaasa v0.0.0-20200207091352-2ecc15aa4d35
-github.com/oktstage/terraform-provider-oktaasa/oktaasa
 # github.com/posener/complete v1.2.1
 github.com/posener/complete
 github.com/posener/complete/cmd
