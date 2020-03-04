@@ -1,12 +1,12 @@
 ---
 layout: "oktaasa"
-page_title: "Provider: Advanced Server Access"
+page_title: "Provider: Okta Advanced Server Access"
 sidebar_current: "docs-oktaasa-index"
 description: |-
   Okta's Advanced Server Access (ASA) provider configures projects, groups, server enrollment tokens and group permissions in Advanced Server Access.
 ---
 
-# Advanced Server Access Provider
+# Okta Advanced Server Access Provider
 
 Okta's Advanced Server Access (ASA) provider configures key parameters such as projects, groups, server enrollment tokens and group permissions in [Advanced Server Access](https://www.okta.com/products/advanced-server-access/), which provides zero trust access management for infrastructure that extends Okta’s core platform to Linux and Windows servers via SSH and RDP.  It does so in a manner that replaces static keys with a more elegant approach based on an ephemeral client certificate architecture.
 
