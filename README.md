@@ -103,7 +103,7 @@ Enrollment is the process where Okta's ASA agent configures a server to be manag
 
 Example usage:
 ```
-resource "oktaasa_token" "stack-x-token" {
+resource "oktaasa_enrollment_token" "stack-x-token" {
   project_name = "tf-test"
   description = "Token for X stack"
 }
