@@ -29,6 +29,11 @@ func resourceOKTAASAProject() *schema.Resource {
 				Optional: true,
 				Default:  63001,
 			},
+			"require_preathorization": &schema.Schema{
+				Type:     schema.TypeBool,
+				Optional: true,
+				Default:  false,
+			},
 		},
 	}
 }
@@ -40,12 +45,14 @@ func resourceOKTAASAProjectCreate(d *schema.ResourceData, m interface{}) error {
 	project_name := d.Get("project_name").(string)
 	next_unix_uid := d.Get("next_unix_uid")
 	next_unix_gid := d.Get("next_unix_gid")
+	requirePreauthorization := d.Get("require_preathorization")
 
 	// create project in OKTAASA
 	project := map[string]interface{}{"name": project_name,
-		"create_server_users": true,
-		"next_unix_uid":       next_unix_uid,
-		"next_unix_gid":       next_unix_gid}
+		"create_server_users":       true,
+		"next_unix_uid":             next_unix_uid,
+		"next_unix_gid":             next_unix_gid,
+		"require_preauth_for_creds": requirePreauthorization}
 	projectB, _ := json.Marshal(project)
 
 	d.SetId(project_name)
@@ -74,8 +81,9 @@ type ProjectList struct {
 }
 
 type Project struct {
-	Name      string `json:"name"`
-	DeletedAt string `json:"deleted_at"`
+	Name          string `json:"name"`
+	DeletedAt     string `json:"deleted_at"`
+	RequrePreAuth bool   `json:"require_preauth_for_creds"`
 }
 
 func resourceOKTAASAProjectRead(d *schema.ResourceData, m interface{}) error {
@@ -103,6 +111,17 @@ func resourceOKTAASAProjectRead(d *schema.ResourceData, m interface{}) error {
 		return nil
 	} else if status == 200 && deleted == false {
 		log.Printf("[INFO] Project %s exists.", projectName)
+
+		var project Project
+
+		err := json.Unmarshal(resp.Body(), &project)
+		if err != nil {
+			return fmt.Errorf("Unable to unmarshal project settings")
+		}
+
+		d.SetId(project.Name)
+		d.Set("require_preathorization", project.RequrePreAuth)
+
 		return nil
 	} else if status == 404 {
 		log.Printf("[INFO] Project %s does not exist", projectName)
@@ -120,12 +139,14 @@ func resourceOKTAASAProjectUpdate(d *schema.ResourceData, m interface{}) error {
 	projectName := d.Get("project_name").(string)
 	nextUnixUid := d.Get("next_unix_uid")
 	nextUnixGid := d.Get("next_unix_gid")
+	requirePreauthorization := d.Get("require_preathorization")
 
 	// create project in OKTAASA
 	project := map[string]interface{}{"name": projectName,
-		"create_server_users": true,
-		"next_unix_uid":       nextUnixUid,
-		"next_unix_gid":       nextUnixGid}
+		"create_server_users":       true,
+		"next_unix_uid":             nextUnixUid,
+		"next_unix_gid":             nextUnixGid,
+		"require_preauth_for_creds": requirePreauthorization}
 	projectB, _ := json.Marshal(project)
 
 	d.SetId(projectName)
