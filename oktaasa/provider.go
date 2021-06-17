@@ -18,6 +18,7 @@ func Provider() *schema.Provider {
 				Type:        schema.TypeString,
 				Required:    true,
 				DefaultFunc: schema.EnvDefaultFunc("OKTAASA_KEY_SECRET", nil),
+				Sensitive:   true,
 				Description: "OKTAASA API secret.",
 			},
 

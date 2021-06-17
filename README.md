@@ -10,15 +10,15 @@ Terraform Provider for Okta's Advanced Server Access (Okta's ASA)
 Requirements
 ------------
 
--	[Terraform](https://www.terraform.io/downloads.html) 1.0.0
--	[Go](https://golang.org/doc/install) 1.16+ (to build the provider plugin)
+-	[Terraform](https://www.terraform.io/downloads.html) 1.0.x
+-	[Go](https://golang.org/doc/install) 1.18+ (to build the provider plugin)
 
 Building The Provider
 ---------------------
 
 Clone this repository
 ```sh
-$ git clone git@github.com:terraform-providers/terraform-provider-oktaasa
+$ git clone git@github.com:oktadev/terraform-provider-oktaasa
 ```
 
 Go to the provider directory and build the provider

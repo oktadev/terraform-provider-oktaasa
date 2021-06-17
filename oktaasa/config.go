@@ -50,7 +50,7 @@ func GetToken(team, key, secret string) []byte {
 		SetBody(credentials).
 		SetHeaders(map[string]string{
 			"Accept":       "application/json",
-			"Content-Type": "Application/json"}).
+			"Content-Type": "application/json"}).
 		Post(composedUrl)
 
 	return resp.Body()

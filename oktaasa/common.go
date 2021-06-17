@@ -37,7 +37,7 @@ func SendGet(bearer string, path string) (*resty.Response, error) {
 	resp, err := client.R().
 		SetHeaders(map[string]string{
 			"Accept":       "application/json",
-			"Content-Type": "Application/json"}).
+			"Content-Type": "application/json"}).
 		SetAuthToken(bearer).
 		Get(composedUrl)
 
@@ -52,7 +52,7 @@ func SendPost(BearerToken, path string, body []byte) (*resty.Response, error) {
 	resp, err := client.R().
 		SetHeaders(map[string]string{
 			"Accept":       "application/json",
-			"Content-Type": "Application/json"}).
+			"Content-Type": "application/json"}).
 		SetAuthToken(BearerToken).
 		SetBody(bytes.NewBuffer(body)).
 		Post(composedUrl)
@@ -68,7 +68,7 @@ func SendPut(BearerToken, path string, body []byte) (*resty.Response, error) {
 	resp, err := client.R().
 		SetHeaders(map[string]string{
 			"Accept":       "application/json",
-			"Content-Type": "Application/json"}).
+			"Content-Type": "application/json"}).
 		SetAuthToken(BearerToken).
 		SetBody(bytes.NewBuffer(body)).
 		Put(composedUrl)
@@ -84,7 +84,7 @@ func SendDelete(BearerToken, path string, body []byte) (*resty.Response, error) 
 	resp, err := client.R().
 		SetHeaders(map[string]string{
 			"Accept":       "application/json",
-			"Content-Type": "Application/json"}).
+			"Content-Type": "application/json"}).
 		SetAuthToken(BearerToken).
 		SetBody(bytes.NewBuffer(body)).
 		Delete(composedUrl)
