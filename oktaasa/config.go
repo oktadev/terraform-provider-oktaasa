@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"log"
 
-	"gopkg.in/resty.v1"
+	"github.com/go-resty/resty/v2"
 )
 
 type Config struct {
@@ -45,8 +45,8 @@ func GetToken(team, key, secret string) []byte {
 	composedUrl := url + "/teams/" + team + "/service_token"
 
 	credentials := map[string]interface{}{"key_id": key, "key_secret": secret}
-
-	resp, _ := resty.R().
+	client := resty.New()
+	resp, _ := client.R().
 		SetBody(credentials).
 		SetHeaders(map[string]string{
 			"Accept":       "application/json",

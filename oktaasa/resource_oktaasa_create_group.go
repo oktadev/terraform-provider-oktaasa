@@ -3,7 +3,7 @@ package oktaasa
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"log"
 )
 
@@ -15,7 +15,7 @@ func resourceOKTAASACreateGroup() *schema.Resource {
 		Delete: resourceOKTAASACreateGroupDelete,
 
 		Schema: map[string]*schema.Schema{
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

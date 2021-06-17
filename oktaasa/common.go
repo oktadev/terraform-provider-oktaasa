@@ -3,8 +3,9 @@ package oktaasa
 import (
 	"bytes"
 	"encoding/json"
-	"gopkg.in/resty.v1"
 	"log"
+
+	"github.com/go-resty/resty/v2"
 )
 
 func checkSoftDelete(response []byte) (bool, error) {
@@ -32,7 +33,8 @@ func checkSoftDelete(response []byte) (bool, error) {
 
 func SendGet(bearer string, path string) (*resty.Response, error) {
 	composedUrl := url + path
-	resp, err := resty.R().
+	client := resty.New()
+	resp, err := client.R().
 		SetHeaders(map[string]string{
 			"Accept":       "application/json",
 			"Content-Type": "Application/json"}).
@@ -46,8 +48,8 @@ func SendGet(bearer string, path string) (*resty.Response, error) {
 
 func SendPost(BearerToken, path string, body []byte) (*resty.Response, error) {
 	composedUrl := url + path
-
-	resp, err := resty.R().
+	client := resty.New()
+	resp, err := client.R().
 		SetHeaders(map[string]string{
 			"Accept":       "application/json",
 			"Content-Type": "Application/json"}).
@@ -62,8 +64,8 @@ func SendPost(BearerToken, path string, body []byte) (*resty.Response, error) {
 
 func SendPut(BearerToken, path string, body []byte) (*resty.Response, error) {
 	composedUrl := url + path
-
-	resp, err := resty.R().
+	client := resty.New()
+	resp, err := client.R().
 		SetHeaders(map[string]string{
 			"Accept":       "application/json",
 			"Content-Type": "Application/json"}).
@@ -78,8 +80,8 @@ func SendPut(BearerToken, path string, body []byte) (*resty.Response, error) {
 
 func SendDelete(BearerToken, path string, body []byte) (*resty.Response, error) {
 	composedUrl := url + path
-
-	resp, err := resty.R().
+	client := resty.New()
+	resp, err := client.R().
 		SetHeaders(map[string]string{
 			"Accept":       "application/json",
 			"Content-Type": "Application/json"}).

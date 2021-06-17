@@ -3,8 +3,9 @@ package oktaasa
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/hashicorp/terraform/helper/schema"
 	"log"
+
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 func resourceOKTAASAAssignGroup() *schema.Resource {
@@ -15,11 +16,11 @@ func resourceOKTAASAAssignGroup() *schema.Resource {
 		Delete: resourceOKTAASAAssignGroupDelete,
 
 		Schema: map[string]*schema.Schema{
-			"project_name": &schema.Schema{
+			"project_name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"group_name": &schema.Schema{
+			"group_name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -112,18 +113,18 @@ func resourceOKTAASAAssignGroupRead(d *schema.ResourceData, m interface{}) error
 		return fmt.Errorf("[ERROR] Error when attempting to check for soft delete, while reading group state: %s. Error: %s", groupName, err)
 	}
 
-	if status == 200 && deleted == true {
+	if status == 200 && deleted {
 		log.Printf("[INFO] Group %s was removed from project %s", groupName, projectName)
 		d.SetId("")
 		return nil
-	} else if status == 200 && deleted == false {
+	} else if status == 200 && !deleted {
 		log.Printf("[INFO] Group %s is assigned to project %s ", groupName, projectName)
 
 		var group Group
 
 		err := json.Unmarshal(resp.Body(), &group)
 		if err != nil {
-			return fmt.Errorf("Unable to unmarshal group settings")
+			return fmt.Errorf("unable to unmarshal group settings: %w", err)
 		}
 
 		d.SetId(group.Name)

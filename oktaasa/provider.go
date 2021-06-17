@@ -1,28 +1,27 @@
 package oktaasa
 
 import (
-	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/hashicorp/terraform/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
-func Provider() terraform.ResourceProvider {
+func Provider() *schema.Provider {
 	return &schema.Provider{
 		Schema: map[string]*schema.Schema{
-			"oktaasa_key": &schema.Schema{
+			"oktaasa_key": {
 				Type:        schema.TypeString,
 				Required:    true,
 				DefaultFunc: schema.EnvDefaultFunc("OKTAASA_KEY", nil),
 				Description: "OKTAASA API key.",
 			},
 
-			"oktaasa_secret": &schema.Schema{
+			"oktaasa_secret": {
 				Type:        schema.TypeString,
 				Required:    true,
 				DefaultFunc: schema.EnvDefaultFunc("OKTAASA_KEY_SECRET", nil),
 				Description: "OKTAASA API secret.",
 			},
 
-			"oktaasa_team": &schema.Schema{
+			"oktaasa_team": {
 				Type:        schema.TypeString,
 				Required:    true,
 				DefaultFunc: schema.EnvDefaultFunc("OKTAASA_TEAM", nil),

@@ -10,28 +10,27 @@ Terraform Provider for Okta's Advanced Server Access (Okta's ASA)
 Requirements
 ------------
 
--	[Terraform](https://www.terraform.io/downloads.html) 0.12.x
--	[Go](https://golang.org/doc/install) 1.13+ (to build the provider plugin)
+-	[Terraform](https://www.terraform.io/downloads.html) 1.0.0
+-	[Go](https://golang.org/doc/install) 1.16+ (to build the provider plugin)
 
 Building The Provider
 ---------------------
 
-Clone repository to: `$GOPATH/src/github.com/terraform-providers/terraform-provider-oktaasa`
-
+Clone this repository
 ```sh
-$ git clone git@github.com:terraform-providers/terraform-provider-oktaasa $GOPATH/src/github.com/terraform-providers/terraform-provider-oktaasa
+$ git clone git@github.com:terraform-providers/terraform-provider-oktaasa
 ```
 
 Go to the provider directory and build the provider
 
 ```sh
-$ cd $GOPATH/src/github.com/terraform-providers/terraform-provider-oktaasa
+$ cd terraform-provider-oktaasa
 $ make build
 ```
 
 Using the provider
 ----------------------
-Set the following environment variables prior to running: Okta's ASA API key, secret and team name. 
+Set the following environment variables prior to running: Okta's ASA API key, secret and team name.
 ```
 export OKTAASA_KEY_SECRET=<secret here>
 export OKTAASA_KEY=<key here>
@@ -94,7 +93,7 @@ Parameters:
 * next_unix_gid (Optional - Default: 63001) - Okta's ASA will start assigning Unix group IDs from this value
 
 ### Enrollment token
-Enrollment is the process where Okta's ASA agent configures a server to be managed by a specific project. An enrollment token is a base64 encoded object with metadata that Okta's ASA Agent can configure itself from.  
+Enrollment is the process where Okta's ASA agent configures a server to be managed by a specific project. An enrollment token is a base64 encoded object with metadata that Okta's ASA Agent can configure itself from.
 
 Example usage:
 ```
@@ -142,7 +141,7 @@ in this project.
 
 Remove/destroy configured parameters
 ----------------------
-To remove configurations that were created with Terraform, do the following.  Refer to the main.tf for the defined resources and review the "resource_type" and "resource_name" values.  
+To remove configurations that were created with Terraform, do the following.  Refer to the main.tf for the defined resources and review the "resource_type" and "resource_name" values.
 
 ```
 resource "resource_type" "resource_name" {
@@ -150,7 +149,7 @@ resource "resource_type" "resource_name" {
 }
 ```
 
-Or, at a commandline prompt where you have sourced the terraform binaries, enter "terraform state list" (without the quotes).  You should get a list like the following.  
+Or, at a commandline prompt where you have sourced the terraform binaries, enter "terraform state list" (without the quotes).  You should get a list like the following.
 
 ```
 [root@ip-172-31-20-120 terraform-provider-oktaasa]# terraform state list
@@ -179,14 +178,14 @@ terraform destroy -target oktaasa_project.demo-project -target oktaasa_create_gr
 Developing the Provider
 ---------------------------
 
-If you wish to work on the provider, you'll first need [Go](http://www.golang.org) installed on your machine (version 1.11+ is *required*). You'll also need to correctly setup a [GOPATH](http://golang.org/doc/code.html#GOPATH), as well as adding `$GOPATH/bin` to your `$PATH`.
+If you wish to work on the provider, you'll first need [Go](http://www.golang.org) installed on your machine (version 1.16+ is *required*).
 
-To compile the provider, run `make build`. This will build the provider and put the provider binary in the `$GOPATH/bin` directory.
+To compile the provider, run `make build`. This will build the provider and put the provider binary in the `$GOBIN` directory.
 
 ```sh
 $ make bin
 ...
-$ $GOPATH/bin/terraform-provider-oktaasa
+$ $GOBIN/terraform-provider-oktaasa
 ...
 ```
 

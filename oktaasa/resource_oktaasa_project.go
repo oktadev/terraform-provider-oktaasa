@@ -3,7 +3,7 @@ package oktaasa
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"log"
 )
 
@@ -15,16 +15,16 @@ func resourceOKTAASAProject() *schema.Resource {
 		Delete: resourceOKTAASAProjectDelete,
 
 		Schema: map[string]*schema.Schema{
-			"project_name": &schema.Schema{
+			"project_name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"next_unix_uid": &schema.Schema{
+			"next_unix_uid": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  60101,
 			},
-			"next_unix_gid": &schema.Schema{
+			"next_unix_gid": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  63001,
