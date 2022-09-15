@@ -7,6 +7,13 @@ Terraform Provider for Okta's Advanced Server Access (Okta's ASA)
 
 <img src="https://cdn.rawgit.com/hashicorp/terraform-website/master/content/source/assets/images/logo-hashicorp.svg" width="600px">
 
+DEPRECATION NOTICE
+------------------
+
+This provider is now deprecated. Okta has released a replacement provider https://registry.terraform.io/providers/okta/oktapam/latest that contains all functionality provided by this provider as well as support for additional resource types. Please migrate to the OktaPAM Terraform provider.
+
+NOTE: The OktaPAM Terraform Provider is not backwards compatible with this provider. However, the new provider supports data sources which will allow users to import current ASA configuration into Terraform for use with the new provider.
+
 Requirements
 ------------
 
