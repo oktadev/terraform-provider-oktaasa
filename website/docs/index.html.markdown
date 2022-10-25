@@ -6,6 +6,12 @@ description: |-
   Okta's Advanced Server Access (ASA) provider configures projects, groups, server enrollment tokens and group permissions in Advanced Server Access.
 ---
 
+# DEPRECATION NOTICE
+
+This provider is now deprecated. Okta has released a replacement provider https://registry.terraform.io/providers/okta/oktapam/latest that contains all functionality provided by this provider as well as support for additional resource types. Please migrate to the OktaPAM Terraform provider.
+
+NOTE: The OktaPAM Terraform Provider is not backwards compatible with this provider. However, the new provider supports data sources which will allow users to import current ASA configuration into Terraform for use with the new provider.
+
 # Okta Advanced Server Access Provider
 
 Okta's Advanced Server Access (ASA) provider configures key parameters such as projects, groups, server enrollment tokens and group permissions in [Advanced Server Access](https://www.okta.com/products/advanced-server-access/), which provides zero trust access management for infrastructure that extends Okta’s core platform to Linux and Windows servers via SSH and RDP.  It does so in a manner that replaces static keys with a more elegant approach based on an ephemeral client certificate architecture.
