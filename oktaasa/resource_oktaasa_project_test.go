@@ -31,6 +31,9 @@ func TestAccProject(t *testing.T) {
 					resource.TestCheckResourceAttr(
 						"oktaasa_project.test", "next_unix_gid", "63020",
 					),
+					resource.TestCheckResourceAttr(
+						"oktaasa_project.test", "require_preathorization", "true",
+					),
 				),
 			},
 			{
@@ -45,6 +48,9 @@ func TestAccProject(t *testing.T) {
 					),
 					resource.TestCheckResourceAttr(
 						"oktaasa_project.test", "next_unix_gid", "63400",
+					),
+					resource.TestCheckResourceAttr(
+						"oktaasa_project.test", "require_preathorization", "false",
 					),
 				),
 			},
@@ -108,6 +114,7 @@ resource "oktaasa_project" "test" {
     project_name = "test-acc-project"
   	next_unix_uid = 60120
   	next_unix_gid = 63020
+	require_preathorization = true
 }`
 
 const testAccProjectUpdateConfig = `
@@ -115,4 +122,5 @@ resource "oktaasa_project" "test" {
     project_name = "test-acc-project"
   	next_unix_uid = 61200
   	next_unix_gid = 63400
+	require_preathorization = false
 }`

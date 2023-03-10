@@ -2,6 +2,7 @@ resource "oktaasa_project" "demo-project" {
   project_name = "tf-test"
   next_unix_uid = 60120
   next_unix_gid = 63020
+  require_preathorization = false
 }
 
 resource "oktaasa_enrollment_token" "test-token" {
